@@ -1,1 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+  <button mat-raised-button (click)="selectEnv()">Sélectionner un environnement</button>
+  <button mat-raised-button (click)="ajouterEvent()">Ajouter un évènement</button>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center" class="title">
+<h2>{{ envSelect }}</h2>
+</div>
+
 <full-calendar id="calendar" [options]="options"></full-calendar>

@@ -1,0 +1,31 @@
+<div fxLayout="row">
+    <h1 fxFlex="95">Choisir un environnement</h1>
+    <mat-icon fxFlex class="cross-button" (click)="onNoClick()">X</mat-icon>
+</div>
+
+<mat-dialog-content class="content" [formGroup]="formGroup">
+<div fxLayout="column" fxLayoutAlign="space-evenly stretch" class="fields">
+    <mat-form-field appearance="outline">
+        <mat-label>Applications</mat-label>
+        <mat-select formControlName="application">
+          <mat-option *ngFor="let app of data.applications" [value]="app.idApplication">
+            {{ app.application }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Environnement</mat-label>
+        <mat-select formControlName="environment">
+          <mat-option *ngFor="let env of data.environments" [value]="env.idEnvironment">
+            {{ env.environment }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-button (click)="onNoClick()">Annuler</button>
+<button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+</mat-dialog-actions>

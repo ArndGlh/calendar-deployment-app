@@ -1,0 +1,52 @@
+
+.content {
+  height: 78%;
+}
+
+.cross-button {
+  cursor: pointer;
+}
+
+::ng-deep .mat-button-focus-overlay {
+  background: transparent;
+}
+
+.button-cancel {
+  text-decoration: underline lightgrey;
+}
+
+.button-cancel:hover {
+  text-decoration: underline black;
+}
+
+.font {
+  color: #3c3c3b;
+}
+
+.del-icon:hover {
+  transform: scale(1.1);
+}
+
+.p-fields {
+  margin-bottom: 0px;
+}
+
+.fields {
+  margin-left: 2%;
+}
+
+.field-handicap {
+  margin-top: 2%;
+}
+
+::ng-deep .mat-dialog-content {
+  display: inherit;
+}
+
+.radio-button-padding {
+  padding-bottom: 15px;
+}
+
+::ng-deep .mat-radio-label {
+  margin-right: 10px;
+}

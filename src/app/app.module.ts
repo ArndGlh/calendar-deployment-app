@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select'
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
@@ -21,6 +23,16 @@ import {CalendarModule} from 'primeng/calendar';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
+import { MatButtonModule } from '@angular/material/button';
+import { DialogChooseEnvComponent } from './components/calendar/dialog-choose-env/dialog-choose-env.component';
+import { DialogAddEventComponent } from './components/calendar/dialog-add-event/dialog-add-event.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatInputModule } from '@angular/material/input';
+import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -33,22 +45,37 @@ FullCalendarModule.registerPlugins([
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
-    CalendarComponent
+    CalendarComponent,
+    DialogChooseEnvComponent,
+    DialogAddEventComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    NgxMatDatetimePickerModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    NgxMatTimepickerModule,
+    MatInputModule,
+    NgxMatMomentModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    NgxMatNativeDateModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
+    MatMomentDateModule,
     CommonModule,
-    FormsModule,
     FullCalendarModule,
     DialogModule,
     InputTextModule,
     CalendarModule,
     CheckboxModule,
     ButtonModule,
-    TabViewModule
+    TabViewModule,
+    MatButtonModule,
+    MatDialogModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

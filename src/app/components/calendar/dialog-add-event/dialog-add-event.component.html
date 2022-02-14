@@ -1,0 +1,66 @@
+<div fxLayout="row">
+    <h1 fxFlex="95">Ajouter un évènement</h1>
+    <mat-icon fxFlex class="cross-button" (click)="onNoClick()">X</mat-icon>
+</div>
+
+<mat-dialog-content class="content" [formGroup]="formGroup">
+<div fxLayout="column" fxLayoutAlign="space-evenly stretch" class="fields">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Applications</mat-label>
+        <mat-select formControlName="application">
+          <mat-option *ngFor="let app of data.applications" [value]="app.idApplication">
+            {{ app.application }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Environnement</mat-label>
+        <mat-select formControlName="environment">
+          <mat-option *ngFor="let env of data.environments" [value]="env.idEnvironment">
+            {{ env.environment }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Auteur</mat-label>
+        <mat-select formControlName="author">
+          <mat-option *ngFor="let author of data.authors" [value]="author.idAuthor">
+            {{ author.author }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Date et heure de début</mat-label>
+        <input
+          matInput
+          [ngxMatDatetimePicker]="startPicker"
+          formControlName="start"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="$any(startPicker)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #startPicker [showSpinners]="true" [showSeconds]="false"> </ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Date et heure de fin</mat-label>
+        <input
+          matInput
+          [ngxMatDatetimePicker]="endPicker"
+          formControlName="end"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="$any(endPicker)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #endPicker [showSpinners]="true" [showSeconds]="false"> </ngx-mat-datetime-picker>
+    </mat-form-field>
+
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-button (click)="onNoClick()">Annuler</button>
+<button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+</mat-dialog-actions>
